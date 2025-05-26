@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/{category}/children', [CategoryController::class, 'showCategoryWithChildren']);
         Route::get('/{category}/products', [CategoryController::class, 'getProducts']);
     });
+
+    // Order Routes
+    Route::apiResource('orders', OrderController::class);
